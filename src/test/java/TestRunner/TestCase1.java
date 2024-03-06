@@ -1,5 +1,6 @@
 package TestRunner;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import base.BaseTest;
 import pageEvents.CartPage;
@@ -15,29 +16,36 @@ public class TestCase1 extends BaseTest {
 	CartPage cart = new CartPage();
 	ProductPage product = new ProductPage();
 	LogoutPage logout = new LogoutPage();
-
-	@Test (priority = 1)
-	public void loginMethod() {
+	WebDriver driver;
+ 
+ 
+	@Test
+	 public void loginMethod() {
 		loginPage.enterCredentials();
-	product.selectProduct();cart.addCustomerDetails();cart.finishOrder();	logout.logout();
+		product.selectProduct();
+		cart.addCustomerDetails();
+		cart.finishOrder();
+		logout.logout();
+		//driver.close();
 	}
-	@Test (priority = 2)
+
+	@Test(priority = 2)
 	public void SelectProduct() {
-	
 
 	}
-	@Test (priority = 3)
+
+	@Test(priority = 3)
 	public void Addtocard() {
-		
 
 	}
-	@Test(priority = 4)	public void finishOrder() {
-		
+
+	@Test(priority = 4)
+	public void finishOrder() {
 
 	}
-	@Test (priority = 5)
+
+	@Test(priority = 5)
 	public void Logout() {
-	
 
 	}
 }

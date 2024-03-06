@@ -11,8 +11,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations. BeforeMethod;
-import org.testng.annotations. BeforeTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -21,11 +23,10 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration. Theme;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.constants;
- 
 
 public class BaseTest {
 
@@ -35,12 +36,11 @@ public class BaseTest {
 	public ExtentTest logger;
 
 	@BeforeTest
-	public void beforeTestMethod(){
-		
+	public void beforeTestMethod() {
+
 		sparkReporter = new ExtentSparkReporter(
-				System.getProperty("user.dir") + File.separator + "reports" +File.separator + "htmlReport.html");
- 
-		 
+				System.getProperty("user.dir") + File.separator + "reports" + File.separator + "htmlReport.html");
+
 		extent = new ExtentReports();
 		extent.attachReporter(sparkReporter);
 		sparkReporter.config().setTheme(Theme.STANDARD);
@@ -49,17 +49,18 @@ public class BaseTest {
 		sparkReporter.config().setDocumentTitle("Automation Report");
 		sparkReporter.config().setReportName("Automation Tests Results by Siddarudha");
 	}
-	
+
 	@BeforeMethod
 	@Parameters("browser")
-	public void BeforeMethodMethod(String browser, Method testMethod)  {
+	public void BeforeMethodMethod(String browser, Method testMethod) {
 		logger = extent.createTest(testMethod.getName());
 		setupDriver(browser);
 		driver.get(constants.url);
-  		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 	}
+
 	@AfterMethod
 	public void afterMethod(ITestResult result) {
 		if (result.getStatus() == ITestResult.FAILURE) {
@@ -77,7 +78,7 @@ public class BaseTest {
 					MarkupHelper.createLabel(result.getThrowable() + " - Test Case Pass", ExtentColor.GREEN));
 
 		}
-	 
+
 	}
 
 	@AfterTest
@@ -85,11 +86,8 @@ public class BaseTest {
 		extent.flush();
 	}
 
-	 
 	public void setupDriver(String browser) {
-		
- 
-				
+
 		if (browser.equalsIgnoreCase("chrome"))
 
 		{

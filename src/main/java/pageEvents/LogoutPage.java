@@ -1,5 +1,7 @@
 package pageEvents;
 
+import com.github.dockerjava.api.model.Driver;
+
 import pageObject.LoginPageObjectss;
 import pageObject.LogoutPageObjects;
 import utils.FetchElements;
@@ -12,6 +14,8 @@ public class LogoutPage {
 
 		ele.getWebElement("XPATH", LogoutPageObjects.menu).click();
 		ele.getWebElement("XPATH", LogoutPageObjects.logoutLinktext).click();
+		
+		 
 
 	}
 }
