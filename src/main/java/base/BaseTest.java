@@ -77,7 +77,7 @@ public class BaseTest {
 					MarkupHelper.createLabel(result.getThrowable() + " - Test Case Pass", ExtentColor.GREEN));
 
 		}
-		driver.quit();
+	 
 	}
 
 	@AfterTest
