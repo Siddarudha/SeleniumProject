@@ -9,8 +9,9 @@
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 
-			<class name="TestRunner.Testcase1" />
+			<class name="TestRunner.TestCase1" />
 		</classes>
+
 	</test> <!--
 	Test -->
 </suite> <!--

@@ -17,7 +17,7 @@ public class FetchElements {
 	public WebElement getWebElement(String identifierType, String identifierValue) {
 		switch (identifierType) {
 
-		case "Xpath":
+		case "XPATH":
 			return BaseTest.driver.findElement(By.xpath(identifierValue));
 
 		case "ID":
@@ -29,7 +29,7 @@ public class FetchElements {
 		case "TAGNAME":
 			return BaseTest.driver.findElement(By.tagName(identifierValue));
 
-		case "Css":
+		case "CSS":
 			return BaseTest.driver.findElement(By.cssSelector(identifierValue));
 
 		default:
