@@ -39,7 +39,7 @@ public class FetchElements {
 		public List<WebElement> getWebElements(String identifierType, String identifierValue) {
 			switch (identifierType) {
 
-			case "Xpath":
+			case "XPATH":
 				return BaseTest.driver.findElements(By.xpath(identifierValue));
 
 			case "ID":

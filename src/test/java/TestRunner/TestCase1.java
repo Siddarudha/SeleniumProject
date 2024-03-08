@@ -28,24 +28,4 @@ public class TestCase1 extends BaseTest {
 		logout.logout();
 		//driver.close();
 	}
-
-	@Test(priority = 2)
-	public void SelectProduct() {
-
-	}
-
-	@Test(priority = 3)
-	public void Addtocard() {
-
-	}
-
-	@Test(priority = 4)
-	public void finishOrder() {
-
-	}
-
-	@Test(priority = 5)
-	public void Logout() {
-
-	}
 }
